@@ -2,7 +2,7 @@
 
 This project is created to make the admin dashboard easily with some fancy cards. feel free to clone and use it for free :)
 
-## ScreenShort
+## ScreenShot
 <img src="./gitImage/dashboard.png" alt="screenshot">
 
 ## Usage
