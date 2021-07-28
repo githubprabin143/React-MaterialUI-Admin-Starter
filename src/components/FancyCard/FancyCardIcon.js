@@ -19,7 +19,6 @@ import VpnKeyIcon from "@material-ui/icons/VpnKey";
 export default function FancyCardIcon({
   children,
   color = "primary",
-  className,
   style,
   ...props
 }) {
@@ -29,10 +28,10 @@ export default function FancyCardIcon({
     <Card
       style={{
         ...style,
-        width: 80,
-        height:80,
+        width: 78,
+        height:78,
         textAlign: "center",
-        lineHeight: "80px",
+        lineHeight: "78px",
         backgroundColor: theme.palette[color]?.light,
         color:theme.palette.text[color]
       }}
@@ -44,7 +43,6 @@ export default function FancyCardIcon({
 }
 
 FancyCardIcon.propTypes = {
-  className: PropTypes.string,
   color: PropTypes.oneOf([
     "warning",
     "success",
@@ -53,9 +51,6 @@ FancyCardIcon.propTypes = {
     "primary",
     "rose",
   ]),
-  plain: PropTypes.bool,
-  stats: PropTypes.bool,
-  icon: PropTypes.bool,
   children: PropTypes.node,
-  ...Box.propTypes,
+  ...Card.propTypes,
 };

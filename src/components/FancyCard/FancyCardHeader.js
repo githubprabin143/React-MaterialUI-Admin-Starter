@@ -1,6 +1,7 @@
 import {
   CardHeader,
-  Paper
+  Paper,
+  Card
 } from "@material-ui/core";
 import PropTypes from "prop-types";
 import React, { useEffect } from "react";
@@ -20,58 +21,31 @@ export default function FancyCardHeader({
   const classes = useStyle();
   const theme = useTheme();
 
-  if (Boolean(icon)) {
+  if (icon) {
     return (
       <Paper
         style={{
           display: "flex",
           justifyContent: "space-between",
           background: "transparent",
+          boxShadow:'none',
+          ...style
         }}
       >
-        {icon}
-        <CardHeader
-          style={{ ...style }}
-          titleTypographyProps={{
-            style: {
-              marginTop: 10,
-              fontSize: 13,
-              color: theme.palette.other.grey[700],
-            },
-            variant: "h6",
-          }}
-          subheaderTypographyProps={{
-            style: {
-              color: theme.palette.black,
-              textAlign: "right",
-            },
-            variant: "h5",
-          }}
-          {...props}
-        />
+        {typeof(children)=="function" ? children(classes) : children}
       </Paper>
     );
   }
 
   return (
-    <Paper>
-      <CardHeader
-        style={{ ...style, backgroundColor: theme.palette[color]?.light }}
-        titleTypographyProps={{
-          style: {
-            color: theme.palette.white,
-          },
-          variant: "h4",
-        }}
-        subheaderTypographyProps={{
-          style: {
-            fontSize: 13,
-            color: theme.palette.white,
-          },
-          variant: "h6",
-        }}
-        {...props}
-      />
+    <Paper
+    style={{
+      padding:10, 
+      background: theme.palette[color]?.light,
+      ...style
+    }}
+    >
+      {typeof(children)=="function" ? children(classes) : children}
     </Paper>
   );
 }
@@ -88,7 +62,7 @@ FancyCardHeader.propTypes = {
   ]),
   plain: PropTypes.bool,
   stats: PropTypes.bool,
-  icon: PropTypes.node,
+  icon: PropTypes.bool,
   children: PropTypes.node,
   ...CardHeader.propTypes,
 };

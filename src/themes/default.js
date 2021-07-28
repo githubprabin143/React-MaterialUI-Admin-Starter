@@ -10,6 +10,7 @@ const danger = "#f44336";
 const rose = "e91e63";
 const black = "#000";
 const white = "#FFF";
+const grey = colors.grey;
 
 const lightenRate = 7.5;
 const darkenRate = 15;
@@ -18,6 +19,7 @@ const defaultTheme = {
   palette: {
     white,
     black,
+    grey,
     primary: {
       main: primary,
       light: tinycolor(primary)
